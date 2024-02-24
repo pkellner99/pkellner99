@@ -64,7 +64,7 @@ export default function CourseCarousel() {
           width: `${courses.length * 100}%`,
           transform: `translateX(-${(activeIndex * 100) / courses.length}%)`,
         }}
-      >
+      >XXX
         {courses.map((course, index) => {
           const str = `https://${course.link}`;
           return (
