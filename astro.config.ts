@@ -7,13 +7,17 @@ import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 import alpinejs from "@astrojs/alpinejs";
 import markdoc from "@astrojs/markdoc";
+import keystatic from "@keystatic/astro";
+
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
   integrations: [tailwind({
     applyBaseStyles: false
-  }), react(), sitemap(), alpinejs(), markdoc()],
+  }), react(), sitemap(), alpinejs(), markdoc(), keystatic()],
+  output: 'hybrid',
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, {
       test: "Table of contents"
@@ -28,5 +32,8 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"]
     }
   },
-  scopedStyleStrategy: "where"
+  scopedStyleStrategy: "where",
+  adapter: node({
+    mode: "standalone"
+  })
 });
