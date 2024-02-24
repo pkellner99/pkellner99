@@ -4,7 +4,6 @@ export default config({
   storage: {
     kind: 'local',
   },
-
   collections: {
     posts: collection({
       label: 'Posts',
@@ -18,7 +17,10 @@ export default config({
           formatting: true,
           dividers: true,
           links: true,
-          images: true,
+          images: {
+            directory: 'src/assets/images/posts',
+            publicPath: '../../assets/images/posts/',
+          },
         }),
       },
     }),
